@@ -1,19 +1,6 @@
 ---
 import '../styles/global.css';
-import Navigation from "../components/Navigation.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 ---
-
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<meta name="viewport" content="width=device-width" />
-	<meta name="generator" content={Astro.generator} />
-	<title>BinaryCitadel.com</title>
-</head>
-<body>
-<Navigation/>
-<h1>Jordan Marsh</h1>
-<h2>binarycitadel.com</h2>
-</body>
-</html>
+<MainLayout pageTitle="Jordan Marsh" subtitle="BinaryCitadel.com">
+</MainLayout>

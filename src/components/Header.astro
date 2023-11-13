@@ -1,0 +1,8 @@
+---
+const { active } = Astro.props;
+import Navigation from "./Navigation.astro";
+---
+<header class="page-header">
+    <div class="header-badge">BinaryCitadel.com</div>
+    <Navigation active={active}/>
+</header>

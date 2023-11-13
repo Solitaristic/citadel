@@ -1,7 +1,8 @@
 ---
+const { active } = Astro.props;
 ---
-<nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/blog">Blog</a>
+<nav class="page-header__nav">
+    <a href="/" class={active == 'Home' ? "navlink navlink--active" : "navlink"}>Home</a>
+    <a href="/about" class={active == 'About' ? "navlink navlink--active" : "navlink"}>About</a>
+    <a href="/blog" class={active == 'Blog' ? "navlink navlink--active" : "navlink"}>Blog</a>
 </nav>

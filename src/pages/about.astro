@@ -1,8 +1,6 @@
 ---
 import '../styles/global.css';
-import '../components/Navigation.astro';
-import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 const identity = {
     firstName: 'Jordan',
     lastName: 'Marsh',
@@ -12,24 +10,11 @@ const identity = {
 
 const skills = ['C#', 'Javascript', 'Typescript', 'CSS', 'HTML', 'C++', 'Python', 'BASH', 'Powershell', 'Photoshop', 'Blender'];
 ---
-
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>BinaryCitadel.com | About</title>
-</head>
-<body>
-<Navigation />
-<h1>About</h1>
-<p>Hi! My name is {identity.firstName}&nbsp;{identity.lastName}!</p>
-<p>I have a lot of hobbies and interests, such as {identity.hobbies[1]}, and {identity.hobbies[4]}</p>
-<p>I'm a Software Developer with over a decade of experience, and a wide array of skills. Some of which include:</p>
-<ul>
-    {skills.map((skill) => <li class="skill">{skill}</li>)}
-</ul>
-<Footer/>
-</body>
-</html>
+<MainLayout pageTitle="About">
+    <p>Hi! My name is {identity.firstName}&nbsp;{identity.lastName}!</p>
+    <p>I have a lot of hobbies and interests, such as {identity.hobbies[1]}, and {identity.hobbies[4]}</p>
+    <p>I'm a Software Developer with over a decade of experience, and a wide array of skills. Some of which include:</p>
+    <ul>
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+</MainLayout>
