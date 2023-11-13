@@ -1,0 +1,7 @@
+---
+const { frontmatter } = Astro.props
+import MainLayout from "../layouts/MainLayout.astro";
+---
+<MainLayout pageTitle={"Blog - " + frontmatter.title} subtitle={`Posted by ${frontmatter.author} at ${new Date(frontmatter.pubDate).toLocaleString()}`}>
+<slot/>
+</MainLayout>

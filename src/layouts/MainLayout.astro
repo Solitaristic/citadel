@@ -15,9 +15,13 @@ const { pageTitle, subtitle} = Astro.props;
 <body class="page-body">
 <Header active="About"/>
 <main>
-    <h1>{pageTitle}</h1>
-    {subtitle && <h2>{subtitle}</h2>}
-    <slot/>
+    <div class="page-title">
+        <h1>{pageTitle}</h1>
+        {subtitle && <h2>{subtitle}</h2>}
+    </div>
+    <div class="content">
+        <slot/>
+    </div>
 </main>
 <Footer/>
 </body>

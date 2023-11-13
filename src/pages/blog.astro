@@ -1,6 +1,29 @@
 ---
 import '../styles/global.css';
 import MainLayout from "../layouts/MainLayout.astro";
+import BlogCard from "../components/BlogCard.astro";
+const allPosts = await Astro.glob('../pages/posts/*.md');
+const pageTitle = 'Blog'
+const blogCompare = (a, b) => new Date(a.frontmatter.pubDate) - new Date(b.frontmatter.pubDate);
+const getLast = (ap) => {
+    const sorted = ap.sort(blogCompare);
+
+    return sorted.length <= 5
+        ? sorted
+        : sorted.slice(sorted.length - 5, 1);
+}
 ---
-<MainLayout pageTitle="Blog">
+<MainLayout pageTitle={pageTitle}>
+    <div>
+        <p>Recent Posts:</p>
+        <div class="blogList">
+            {getLast(allPosts).map((s) =>
+                <BlogCard url={s.url}
+                          blogTitle={s.frontmatter.title}
+                          pubDate={s.frontmatter.pubDate}
+                          description={s.frontmatter.description}/>
+            )}
+        </div>
+    </div>
 </MainLayout>
+
