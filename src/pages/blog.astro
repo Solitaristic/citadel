@@ -4,7 +4,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import BlogCard from "../components/BlogCard.astro";
 const allPosts = await Astro.glob('../pages/posts/*.md');
 const pageTitle = 'Blog'
-const blogCompare = (a, b) => new Date(a.frontmatter.pubDate) - new Date(b.frontmatter.pubDate);
+const blogCompare = (a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate);
 const getLast = (ap) => {
     const sorted = ap.sort(blogCompare);
 

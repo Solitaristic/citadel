@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import MainLayout from "../layouts/MainLayout.astro";
+import Greeting from '../components/Greeting.jsx';
 ---
 <MainLayout pageTitle="Jordan Marsh" subtitle="BinaryCitadel.com">
+    <Greeting client:load messages={['Hi', 'Hello', 'Greetings']}/>
 </MainLayout>

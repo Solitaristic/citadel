@@ -1,7 +1,12 @@
 ---
 const { frontmatter } = Astro.props
 import MainLayout from "../layouts/MainLayout.astro";
+
+const pageTitle = frontmatter.title;
+const subtitle = `Posted by ${frontmatter.author} at ${(new Date(frontmatter.pubDate).toLocaleString())}`;
 ---
-<MainLayout pageTitle={"Blog - " + frontmatter.title} subtitle={`Posted by ${frontmatter.author} at ${new Date(frontmatter.pubDate).toLocaleString()}`}>
-<slot/>
+<MainLayout pageTitle={"Blog - " + frontmatter.title} subtitle={subtitle}>
+    <div class="content-block">
+        <slot/>
+    </div>
 </MainLayout>
